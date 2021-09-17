@@ -21,11 +21,11 @@ import { sessionsReducer, currentSessionReducer } from './sessions';
 
 const reducer = combineReducers({
   auth,
-  blockedSites: blockedSitesReducer,
+  // blockedSites: blockedSitesReducer,
   sessions: sessionsReducer,
-  sites: sitesReducer,
-  blackList: blackListReducer,
-  blocks: blocksReducer,
+  // sites: sitesReducer,
+  // blackList: blackListReducer,
+  // blocks: blocksReducer,
   currentSession: currentSessionReducer,
   // allPlaylists: playlistsReducer,
   // currPlaylist: currPlaylistReducer,

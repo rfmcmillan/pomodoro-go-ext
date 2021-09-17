@@ -1,7 +1,7 @@
 import axios from 'axios';
 import history from '../popup/history';
 import socketIOClient from 'socket.io-client';
-const ENDPOINT = process.env.API_URL;
+const ENDPOINT = 'https://pomodoro-go-1.herokuapp.com';
 export const socket = socketIOClient(ENDPOINT);
 
 const TOKEN = 'token';
@@ -25,7 +25,7 @@ const setAuth = (auth) => ({ type: SET_AUTH, auth });
 export const me = () => async (dispatch) => {
   const token = window.localStorage.getItem(TOKEN);
   if (token) {
-    const res = await axios.get(`${process.env.API_URL}/auth/me`, {
+    const res = await axios.get('https://pomodoro-go-1.herokuapp.com/auth/me', {
       headers: {
         authorization: token,
       },
@@ -51,7 +51,7 @@ export const authenticate =
   (username, email, password, method) => async (dispatch) => {
     try {
       const res = await axios.post(
-        `${process.env.API_URL}/auth/${method}`,
+        'https://pomodoro-go-1.herokuapp.com/auth/${method}',
         method === 'signup'
           ? { username, email, password }
           : { email, password }

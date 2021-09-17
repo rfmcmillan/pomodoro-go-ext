@@ -10,6 +10,7 @@ import history from './history';
 import store from '../store';
 import App from './app';
 
+
 const theme = createTheme({
   palette: {
     background: {
@@ -45,6 +46,9 @@ const theme = createTheme({
   },
 });
 
+const root = document.createElement('div')
+document.body.appendChild(root)
+
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
@@ -53,5 +57,5 @@ ReactDOM.render(
       </Router>
     </MuiThemeProvider>
   </Provider>,
-  document.getElementById('app')
+  root
 );

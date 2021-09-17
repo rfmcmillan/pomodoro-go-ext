@@ -10,7 +10,9 @@ const loadSessionsActionCreator = (sessions) => {
 const loadSessions = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`${process.env.API_URL}/api/sessions`);
+      const response = await axios.get(
+        'https://pomodoro-go-1.herokuapp.com/api/sessions'
+      );
       const sessions = response.data;
       dispatch(loadSessionsActionCreator(sessions));
     } catch (error) {
@@ -31,7 +33,7 @@ const loadSessionActionCreator = (session) => {
 const loadSession = (sessionId) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `${process.env.API_URL}/api/sessions/${sessionId}`
+      `https://pomodoro-go-1.herokuapp.com/api/sessions/${sessionId}`
     );
     dispatch(loadSessionActionCreator(res.data));
   } catch (error) {
@@ -56,10 +58,13 @@ const createSessionActionCreator = (session) => {
 };
 const createSession = (userId, goal) => async (dispatch) => {
   try {
-    const response = await axios.post(`${process.env.API_URL}/api/sessions`, {
-      userId,
-      goal,
-    });
+    const response = await axios.post(
+      'https://pomodoro-go-1.herokuapp.com/api/sessions',
+      {
+        userId,
+        goal,
+      }
+    );
     const { data } = response;
 
     localStorage.setItem('currentSession', JSON.stringify(data));
@@ -80,7 +85,7 @@ const updateSessionActionCreator = (session) => {
 const updateSession = (sessionId, sessionInfo) => async (dispatch) => {
   try {
     const response = await axios.put(
-      `${process.env.API_URL}/api/sessions/${sessionId}`,
+      `https://pomodoro-go-1.herokuapp.com/api/sessions/${sessionId}`,
       sessionInfo
     );
     const { data } = response;
@@ -106,12 +111,12 @@ export const endSession =
   async (dispatch) => {
     try {
       let response = await axios.put(
-        `${process.env.API_URL}/api/sessions/${sessionId}/end`,
+        `https://pomodoro-go-1.herokuapp.com/api/sessions/${sessionId}/end`,
         { successful }
       );
       if (response.data.status === 'Ongoing') {
         response = await axios.put(
-          `${process.env.API_URL}/api/sessions/${sessionId}/end`,
+          `https://pomodoro-go-1.herokuapp.com/api/sessions/${sessionId}/end`,
           { successful }
         );
       }
@@ -139,7 +144,7 @@ const addTaskCreator = (session) => {
 const addTask = (task, sessionId) => {
   return async (dispatch) => {
     const response = await axios.post(
-      `${process.env.API_URL}/api/sessions/${sessionId}/tasks`,
+      `https://pomodoro-go-1.herokuapp.com/api/sessions/${sessionId}/tasks`,
       {
         task,
       }
@@ -161,7 +166,7 @@ const deleteTaskCreator = (session) => {
 const deleteTask = (id, sessionId) => {
   return async (dispatch) => {
     const res = await axios.delete(
-      `${process.env.API_URL}/api/sessions/${sessionId}/tasks/${id}`
+      `https://pomodoro-go-1.herokuapp.com/api/sessions/${sessionId}/tasks/${id}`
     );
     dispatch(deleteTaskCreator(res.data));
   };
@@ -179,7 +184,7 @@ const updateTaskActionCreator = (session) => {
 const updateTask = (taskId, sessionId) => async (dispatch) => {
   try {
     const res = await axios.put(
-      `${process.env.API_URL}/api/sessions/${sessionId}/tasks/${taskId}`
+      `https://pomodoro-go-1.herokuapp.com/api/sessions/${sessionId}/tasks/${taskId}`
     );
     dispatch(updateTaskActionCreator(res.data));
   } catch (error) {

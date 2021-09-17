@@ -75,7 +75,10 @@ const SandboxLogin = (props) => {
             `}
               </Typography>
 
-              <Link variant="caption" href={`${process.env.API_URL}/login`}>
+              <Link
+                variant="caption"
+                href="https://pomodoro-go-1.herokuapp.com/login"
+              >
                 here.
               </Link>
             </Grid>
@@ -86,7 +89,10 @@ const SandboxLogin = (props) => {
                   {`
             `}
                 </Typography>
-                <Link variant="caption" href={`${process.env.API_URL}/signup`}>
+                <Link
+                  variant="caption"
+                  href="https://pomodoro-go-1.herokuapp.com/signup"
+                >
                   Sign up
                 </Link>
               </Grid>

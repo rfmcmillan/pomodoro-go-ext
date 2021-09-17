@@ -141,7 +141,10 @@ const AuthForm = (props) => {
                     {`
               `}
                   </Typography>
-                  <Link variant="caption" href={`${process.env.API_URL}/login`}>
+                  <Link
+                    variant="caption"
+                    href="https://pomodoro-go-1.herokuapp.com/login"
+                  >
                     Sign in
                   </Link>
                 </Grid>
@@ -154,7 +157,7 @@ const AuthForm = (props) => {
 
                   <Link
                     variant="caption"
-                    href={`${process.env.API_URL}/sandboxLogin`}
+                    href="https://pomodoro-go-1.herokuapp.com/sandboxLogin"
                   >
                     here.
                   </Link>
@@ -221,7 +224,7 @@ const AuthForm = (props) => {
 
                 <Link
                   variant="caption"
-                  href={`${process.env.API_URL}/sandboxLogin`}
+                  href="https://pomodoro-go-1.herokuapp.com/sandboxLogin"
                 >
                   here.
                 </Link>
@@ -235,7 +238,7 @@ const AuthForm = (props) => {
                   </Typography>
                   <Link
                     variant="caption"
-                    href={`${process.env.API_URL}/signup`}
+                    href="https://pomodoro-go-1.herokuapp.com/signup"
                   >
                     Sign up
                   </Link>
