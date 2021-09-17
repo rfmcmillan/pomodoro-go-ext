@@ -1,6 +1,6 @@
 {
-  "name": "React Extension Boilerplate",
-  "description": "Chrome Extension Boilerplatein React!",
+  "name": "PomodoroGo",
+  "description": "Pomodoro TImer and Web Site Blocker Chrome Extension",
   "version": "1.0.0",
   "manifest_version": 3,
   "icons": {
@@ -10,7 +10,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "React Extension",
+    "default_title": "PomodoroGo",
     "default_icon": "icon.png"
   },
   "permissions": ["storage"],

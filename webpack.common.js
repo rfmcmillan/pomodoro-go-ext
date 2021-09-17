@@ -9,6 +9,7 @@ module.exports = {
     options: path.resolve('src/options/options.tsx'),
     background: path.resolve('src/background/background.ts'),
     contentScript: path.resolve('src/contentScript/contentScript.ts'),
+    dashboard: path.resolve('src/components/Dashboard'),
   },
   module: {
     rules: [
@@ -23,9 +24,17 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/,
-        type: 'asset/resource'
-      }
-    ]
+        type: 'asset/resource',
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react'],
+        },
+      },
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -39,13 +48,10 @@ module.exports = {
         {
           from: path.resolve('src/static'),
           to: path.resolve('dist'),
-        }
-      ]
+        },
+      ],
     }),
-    ...getHtmlPlugins([
-      'popup',
-      'options'
-    ]),
+    ...getHtmlPlugins(['popup', 'options']),
   ],
   output: {
     filename: '[name].js',
@@ -54,16 +60,19 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks(chunk) {
-        return chunk.name !== 'contentScript' && chunk.name !== 'background'
-      }
+        return chunk.name !== 'contentScript' && chunk.name !== 'background';
+      },
     },
-  }
-}
+  },
+};
 
 function getHtmlPlugins(chunks) {
-  return chunks.map(chunk => new HtmlPlugin({
-    title: 'React Extension',
-    filename: `${chunk}.html`,
-    chunks: [chunk],
-  }))
+  return chunks.map(
+    (chunk) =>
+      new HtmlPlugin({
+        title: 'React Extension',
+        filename: `${chunk}.html`,
+        chunks: [chunk],
+      })
+  );
 }

@@ -1,1 +1,1 @@
-{"version":3,"file":"contentScript.js","sources":["webpack://react-chrome-extension-boilerplate/./src/contentScript/contentScript.ts"],"sourcesContent":["// TODO: content script\n"],"mappings":";;;;;AAAA;;;A","sourceRoot":""}
+{"version":3,"file":"contentScript.js","sources":["webpack://pomodoro-go-ext/./src/contentScript/contentScript.ts"],"sourcesContent":["// TODO: content script\n"],"mappings":";;;;;AAAA;;;A","sourceRoot":""}
