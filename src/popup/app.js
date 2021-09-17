@@ -10,8 +10,8 @@ export const SessionContext = createContext();
 
 const useStyles = makeStyles(() => ({
   main: {
-    height: '100%',
-    width: '100%',
+    height: '500px',
+    width: '500px',
   },
 }));
 const App = (props) => {
