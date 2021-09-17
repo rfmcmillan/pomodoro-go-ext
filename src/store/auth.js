@@ -1,7 +1,6 @@
 import axios from 'axios';
 import history from '../popup/history';
 import socketIOClient from 'socket.io-client';
-//test
 const ENDPOINT = process.env.API_URL;
 export const socket = socketIOClient(ENDPOINT);
 
